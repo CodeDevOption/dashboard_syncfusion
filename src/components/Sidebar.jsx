@@ -5,8 +5,12 @@ import { SiShopware } from "react-icons/si";
 import { links } from "../assets/data/dummy.js";
 import { Link, NavLink } from "react-router-dom";
 import { MdOutlineCancel } from "react-icons/md";
+import { useStateValue } from "../StateProvider.js";
 const Sidebar = () => {
-  const activeMenu = true;
+  const [{ activeMenu, screenSize }, dispatch] = useStateValue();
+  const handleCloseSidebar = () => {
+    screenSize <= 900 && dispatch({ type: "SIDEBAR_CLOSE" });
+  };
   const ActiveLink =
     "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2 ";
   const NormalLink =
@@ -18,13 +22,18 @@ const Sidebar = () => {
           <div className="flex justify-between items-center">
             <Link
               to="/"
-              onClick={() => {}}
+              onClick={handleCloseSidebar}
               className="flex items-center gap-3 ml-3 mt-4 text-xl font-extrabold dark:text-white text-slate-900"
             >
               <SiShopware /> <span>Shoppy</span>
             </Link>
             <TooltipComponent content="Menu" position="BottomCenter">
               <button
+                onClick={() =>
+                  dispatch({
+                    type: "TOGGlE",
+                  })
+                }
                 type="button"
                 className="text-xl p-3 rounded-full block md:hidden"
               >
@@ -40,7 +49,7 @@ const Sidebar = () => {
                   <NavLink
                     to={`/${link.name}`}
                     key={link.name}
-                    onClick={() => {}}
+                    onClick={handleCloseSidebar}
                     className={({ isActive }) =>
                       isActive ? ActiveLink : NormalLink
                     }

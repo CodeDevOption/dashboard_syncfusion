@@ -22,15 +22,18 @@ import {
   Pyramid,
   Stacked,
 } from "./pages";
+import { useStateValue } from "./StateProvider";
 
 const App = () => {
-  const activeMenu = true;
+  const [{activeMenu}, dispatch] = useStateValue();
   return (
     <div>
       <div className="flex relative dark:bg-main-dark-bg">
+        {/* Setting Btn Bottom Right Fixed */}
         <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
           <TooltipComponent content="Settings" position="Top">
             <button
+
               type="button"
               style={{ background: "blue", borderRadius: "50%" }}
               className="text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray"
@@ -39,6 +42,8 @@ const App = () => {
             </button>
           </TooltipComponent>
         </div>
+
+        {/* Sidebar */}
         {activeMenu ? (
           <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white ">
             <Sidebar />
@@ -48,6 +53,8 @@ const App = () => {
             <Sidebar />
           </div>
         )}
+
+        {/* Main Container  */}
         <div
           className={`
             dark:bg-main-dark-bg  bg-main-bg min-h-screen w-full ${
