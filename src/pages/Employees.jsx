@@ -14,7 +14,7 @@ import { employeesData, employeesGrid } from "../assets/data/dummy";
 
 const Employees = () => {
   return (
-    <div className="m-2 mt-16 md:mt-0 md:m-5 md:p-5 2xl::m-10 p-2 2xl:p-10">
+    <div className="m-2 mt-16 md:mt-0 md:m-5 md:p-5 2xl::m-10 p-2 2xl:p-10  bg-white rounded-3xl">
       <Header category="Page" title="Employees" />
       <GridComponent width='auto' toolbar={['Search']} dataSource={employeesData} allowPaging allowSorting>
         <ColumnsDirective>

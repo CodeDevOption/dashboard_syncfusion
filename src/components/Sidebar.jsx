@@ -7,7 +7,7 @@ import { Link, NavLink } from "react-router-dom";
 import { MdOutlineCancel } from "react-icons/md";
 import { useStateValue } from "../StateProvider.js";
 const Sidebar = () => {
-  const [{ activeMenu, screenSize }, dispatch] = useStateValue();
+  const [{ activeMenu, screenSize, currentColor }, dispatch] = useStateValue();
   const handleCloseSidebar = () => {
     screenSize <= 900 && dispatch({ type: "SIDEBAR_CLOSE" });
   };
@@ -50,6 +50,9 @@ const Sidebar = () => {
                     to={`/${link.name}`}
                     key={link.name}
                     onClick={handleCloseSidebar}
+                    style={({ isActive }) => ({
+                      backgroundColor: isActive ? currentColor : "",
+                    })}
                     className={({ isActive }) =>
                       isActive ? ActiveLink : NormalLink
                     }

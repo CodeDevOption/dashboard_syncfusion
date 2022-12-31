@@ -3,7 +3,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 import { FiSettings } from "react-icons/fi";
-import { Footer, Navbar, Sidebar } from "./components";
+import { Footer, Navbar, Sidebar, ThemeSettings } from "./components";
 import {
   Area,
   Bar,
@@ -25,17 +25,28 @@ import {
 import { useStateValue } from "./StateProvider";
 
 const App = () => {
-  const [{activeMenu}, dispatch] = useStateValue();
+  const [{ activeMenu, themeSetting, currentColor, theme }, dispatch] =
+    useStateValue();
+  console.log(theme);
   return (
     <div>
-      <div className="flex relative  dark:bg-main-dark-bg">
+      <div
+        className={`flex relative overflow-x-hidden  ${
+          theme === "Dark" && "dark"
+        }  dark:bg-main-dark-bg`}
+      >
         {/* Setting Btn Bottom Right Fixed */}
         <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
           <TooltipComponent content="Settings" position="Top">
             <button
-
+              onClick={() =>
+                dispatch({
+                  type: "THEME_SETTING",
+                  theme: true,
+                })
+              }
               type="button"
-              style={{ background: "blue", borderRadius: "50%" }}
+              style={{ background: currentColor, borderRadius: "50%" }}
               className="text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray"
             >
               <FiSettings />
@@ -65,6 +76,8 @@ const App = () => {
             <Navbar />
           </div>
           <div>
+            {themeSetting && <ThemeSettings />}
+
             <Routes>
               {/* dashboard  */}
               <Route path="/" element={<Ecommerce />} />

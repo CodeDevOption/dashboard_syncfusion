@@ -17,7 +17,7 @@ import { customersData, customersGrid} from "../assets/data/dummy";
 
 const Customers = () => {
   return (
-    <div className="m-2 mt-16 md:mt-0 md:m-5 md:p-5 2xl::m-10 p-2 2xl:p-10">
+    <div className="m-2 mt-16 md:mt-0 md:m-5 md:p-5 2xl::m-10 p-2 2xl:p-10  bg-white rounded-3xl">
       <Header category="Page" title="Customers" />
       <GridComponent width='auto' toolbar={['Delete']} dataSource={customersData} editSettings={{allowDeleting:true,allowEditing:true}} allowPaging allowSorting>
         <ColumnsDirective>

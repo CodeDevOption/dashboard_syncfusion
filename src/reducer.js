@@ -5,6 +5,9 @@ export const initialState = {
   notification: false,
   activeMenu: true,
   screenSize: undefined,
+  currentColor: "#1A97F5",
+  theme: "Light",
+  themeSetting: false,
 };
 
 export const reducer = (state, action) => {
@@ -39,6 +42,23 @@ export const reducer = (state, action) => {
         ...state,
         activeMenu: false,
       };
+
+    case "CHANGE_THEME_COLOR":
+      return {
+        ...state,
+        currentColor: action.color,
+      };
+    case "CHANGE_THEME":
+      return {
+        ...state,
+        theme: action.theme,
+      };
+    case "THEME_SETTING":
+      return {
+        ...state,
+        themeSetting: action.theme,
+      };
+
     default:
       return state;
   }
