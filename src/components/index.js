@@ -1,7 +1,7 @@
 import Button from "./Button";
 import ThemeSettings from "./ThemeSettings";
 import Cart from "./Cart";
-import ChartHeader from "./ChartHeader";
+import ChartsHeader from "./ChartsHeader";
 import Chat from "./Chat";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -18,7 +18,7 @@ export {
   Button,
   ThemeSettings,
   Cart,
-  ChartHeader,
+  ChartsHeader,
   Chat,
   Footer,
   Header,

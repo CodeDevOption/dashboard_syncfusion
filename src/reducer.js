@@ -22,6 +22,11 @@ export const reducer = (state, action) => {
         userProfile: action.value === "userProfile" ? true : false,
         notification: action.value === "notification" ? true : false,
       };
+    case "handleClose": //chat
+      return {
+        ...state,
+        [action.value]:false
+      };
     case "resize":
       if (action.size <= 900) {
         return {
