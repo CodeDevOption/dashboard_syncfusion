@@ -1,7 +1,5 @@
 # Admin Dashboard With Syncfusion 
 
-Demo Site : https://admdashboard.netlify.app
-
 ### Advanced Configuration
 
 Register the license key with the license file
@@ -26,4 +24,4 @@ Now run the application. If you are facing a license validation error, refer to 
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Demo Site : https://admdashboard.netlify.app
